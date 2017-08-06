@@ -47,9 +47,10 @@ UIViewController *rightViewController = nil;
     
     // default is all MMOpenDrawerGestureModeAll and MMCloseDrawerGestureModeAll
     // ForkOut: open default is MMOpenDrawerGestureModeBezelPanningCenterView since we need to use gesture responder in react as well
+    // ForkOut: similarily, change closing to only interacting with the center view
     self.openDrawerGestureModeMask = MMOpenDrawerGestureModeBezelPanningCenterView;
-    self.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-    
+    self.closeDrawerGestureModeMask = MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModeTapCenterView;
+ 
     NSNumber *disableOpenGesture = props[@"disableOpenGesture"];
     if ([disableOpenGesture boolValue]) {
         self.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
